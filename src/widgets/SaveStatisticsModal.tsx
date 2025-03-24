@@ -1,14 +1,10 @@
 import { FC, useCallback, useState } from "react";
-import { cn } from "@/shared/lib/utils";
+
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/shared/ui/alert-dialog";
 import { SaveStatistics } from "@/features/Leaderboard/ui/SaveStatistics";
@@ -18,7 +14,7 @@ interface SaveStatisticsModalProps {
   className?: string;
 }
 
-const SaveStatisticsModal: FC<SaveStatisticsModalProps> = ({ className }) => {
+const SaveStatisticsModal: FC<SaveStatisticsModalProps> = () => {
   const [opened, setOpened] = useState(false);
   const onSaveHandler = useCallback(() => setOpened(false), [setOpened]);
   return (

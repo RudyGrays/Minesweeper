@@ -12,7 +12,7 @@ import { NavLink, useLocation } from "react-router";
 import { Label } from "@/shared/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/shared/ui/popover";
 import { Bomb, Crown, Joystick, Settings } from "lucide-react";
-import { useEffect } from "react";
+
 import {
   RoutePaths,
   Routes,

@@ -10,15 +10,17 @@ import {
   TableRow,
 } from "@/shared/ui/table";
 import { useAppSelector } from "@/app/providers/StoreProvider/model/config/Store";
-import { LeaderBoardSelectors } from "../model/selectors/leaderboardSelectors";
+
 import useTimer from "@/shared/hooks/useTimer";
+import { Leader } from "../model/types/LeaderboardTypes";
+import { LeaderBoardSelectors } from "../model/selectors/LeaderboardSelectors";
 
 interface LeaderboardTableProps {
   className?: string;
 }
 
-const LeaderboardTable: FC<LeaderboardTableProps> = ({ className }) => {
-  const leaders = useAppSelector(LeaderBoardSelectors.leaders);
+const LeaderboardTable: FC<LeaderboardTableProps> = () => {
+  const leaders: Leader[] = useAppSelector(LeaderBoardSelectors.leaders);
   const { formatTime } = useTimer();
   return (
     <Table>
