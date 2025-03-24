@@ -40,7 +40,7 @@
 ### Установка
 
 ```bash
-git clone https://github.com/yourname/minesweeper-game.git
+git clone https://github.com/RudyGrays/Minesweeper.git
 cd minesweeper
 npm install
 ```
