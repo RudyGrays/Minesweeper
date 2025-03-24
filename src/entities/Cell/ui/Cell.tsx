@@ -26,7 +26,6 @@ const Cell: FC<CellProps> = ({
     isOpened,
     isFlag,
     size: { cellCountX, cellCountY },
-    id,
   } = cell;
 
   const openCellSound = () => {
@@ -82,7 +81,6 @@ const Cell: FC<CellProps> = ({
         [className]
       )}
     >
-      {/* <div className="absolute top-0 right-0 text-[0.4rem]">{id}</div> */}
       {isBomb && visibleMode && !isFlag && <Bomb />}
       {(!isBomb && isOpened && externalBombs != 0 && externalBombs) ||
         (visibleMode && !isBomb && !isFlag && externalBombs)}

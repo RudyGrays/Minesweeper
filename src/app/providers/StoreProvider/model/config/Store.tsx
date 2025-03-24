@@ -1,8 +1,4 @@
-import {
-  configureStore,
-  ReducersMapObject,
-  combineReducers,
-} from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { StateSchema } from "../types/Schema";
 import {
   persistStore,
