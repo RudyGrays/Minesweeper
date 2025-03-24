@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { cn } from "@/shared/lib/utils";
-import { Button } from "@/shared/ui/button";
+
 import { useAppDispatch } from "@/app/providers/StoreProvider/model/config/Store";
 
 import { gameActions } from "../model/slice/GameSlice";
@@ -11,10 +11,7 @@ interface GameResetButtonProps {
   text?: string;
 }
 
-const GameResetButton: FC<GameResetButtonProps> = ({
-  className,
-  text = "Restart",
-}) => {
+const GameResetButton: FC<GameResetButtonProps> = ({ className }) => {
   const dispatch = useAppDispatch();
 
   return (

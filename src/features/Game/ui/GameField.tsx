@@ -5,26 +5,20 @@ import {
 import { Cell } from "@/entities/Cell/ui/Cell";
 import { gameSelectors } from "../model/selectors/selectors";
 
-import {
-  gameActions,
-  GameComplexity,
-  getComplexityNumber,
-} from "../model/slice/GameSlice";
+import { gameActions } from "../model/slice/GameSlice";
 import { GameStatus } from "../model/types/GameTypes";
 
 import { GameLose } from "@/widgets/GameLose";
 import { GameWin } from "@/widgets/GameWin";
 import { ICell } from "@/entities/Cell/model/types/Cell";
 import useTimer from "@/shared/hooks/useTimer";
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
-import { useWindowWidth } from "@/shared/hooks/useWindowWidth";
-import useDebounce from "@/shared/hooks/useDebounce";
+import { useEffect, useLayoutEffect } from "react";
 
 export const GameField = () => {
   const cells = useAppSelector(gameSelectors.getCells);
   const status = useAppSelector(gameSelectors.getGameStatus);
-  const mode = useAppSelector(gameSelectors.getGameMode);
-  const { start, stop, time, formatTime, reset } = useTimer();
+
+  const { start, stop, time, reset } = useTimer();
   const visibleMode = useAppSelector(gameSelectors.getVisibleMode);
   const columnsCount = useAppSelector(gameSelectors.getColsCount);
   const dispatch = useAppDispatch();

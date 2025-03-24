@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { cn } from "@/shared/lib/utils";
+
 import {
   Table,
   TableBody,
