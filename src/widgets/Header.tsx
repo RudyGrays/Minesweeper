@@ -44,10 +44,10 @@ export const Header = () => {
               <GameResetButton />
               <Label>
                 <span translate="no">Time:{` `}</span>
-                {formatTime(time)}
+                <span translate="no">{formatTime(time)}</span>
               </Label>
 
-              <div>Score: {score}</div>
+              <div translate="no">Score: {score}</div>
             </div>
           )
         : isGamePath && (
@@ -57,7 +57,7 @@ export const Header = () => {
               </div>
               <Label className="text-sm">
                 <span translate="no">Time:{` `}</span>
-                {formatTime(time)}
+                <span translate="no">{formatTime(time)}</span>
               </Label>
 
               <GameResetButton />
@@ -86,12 +86,12 @@ export const Header = () => {
           )}
       <div className="flex gap-3 h-full items-center">
         {isGamePath && (
-          <NavLink to={RoutePaths[Routes.LEADERBOARD]}>
+          <NavLink translate="no" to={RoutePaths[Routes.LEADERBOARD]}>
             <Crown />
           </NavLink>
         )}
         {isLeaderboardPath && (
-          <NavLink to={RoutePaths[Routes.GAME]}>
+          <NavLink translate="no" to={RoutePaths[Routes.GAME]}>
             <Joystick />
           </NavLink>
         )}

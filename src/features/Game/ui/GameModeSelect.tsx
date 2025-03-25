@@ -30,7 +30,7 @@ const GameModeSelect = ({ haveText = true }: { haveText?: boolean }) => {
         onValueChange={(value: GameComplexityEnum) => handleSelect(value)}
         value={complexity}
       >
-        <SelectTrigger>
+        <SelectTrigger translate="no">
           <SelectValue translate="no" placeholder="Select a game complexity" />
         </SelectTrigger>
         <SelectContent>

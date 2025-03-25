@@ -19,8 +19,8 @@ const GameLose: FC<GameLoseProps> = ({ className }) => {
         [className]
       )}
     >
-      <div>Lose</div>
-      <GameResetButton text={"Restart"} />
+      <div translate="no">Lose</div>
+      <GameResetButton />
     </div>
   );
 };
