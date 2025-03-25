@@ -23,7 +23,7 @@ const GameChanceInput: FC<GameChanceInputProps> = ({
   };
   return (
     <Label>
-      {haveText && "Chance"}
+      {haveText && <span>Chance</span>}
       <Input
         type="number"
         step={0.1}

@@ -16,7 +16,7 @@ const GameWin: FC<GameWinProps> = ({ className }) => {
         [className]
       )}
     >
-      Win
+      <div>Win</div>
       <SaveStatisticsModal />
       <GameResetButton />
     </div>

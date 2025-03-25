@@ -43,7 +43,7 @@ export const Header = () => {
               <GameChanceInput />
               <GameResetButton />
               <Label>
-                Time:{` `}
+                <span>Time:{` `}</span>
                 {formatTime(time)}
               </Label>
 
@@ -54,7 +54,7 @@ export const Header = () => {
             <div className="w-full flex h-full gap-3 justify-end items-center">
               <div className="text-sm">Score: {score}</div>
               <Label className="text-sm">
-                Time:{` `}
+                <span>Time:{` `}</span>
                 {formatTime(time)}
               </Label>
 
@@ -65,16 +65,16 @@ export const Header = () => {
                 </PopoverTrigger>
                 <PopoverContent className="w-full flex gap-3 flex-col">
                   <div className="flex w-full justify-between  gap-3 items-center">
-                    Mode
+                    <span>Mode</span>
                     <GameModeSelect haveText={false} />
                   </div>
                   <div className="flex w-full  justify-between gap-3 items-center">
-                    Chance
+                    <span>Chance</span>
                     <GameChanceInput haveText={false} />
                   </div>
                   {gameStatus === GameStatus.STARTED && (
                     <div className="flex w-full  justify-between gap-3 items-center">
-                      VisibleBombs
+                      <span>VisibleBombs</span>
                       <VisibleModeSwitcher />
                     </div>
                   )}
