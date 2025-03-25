@@ -20,12 +20,12 @@ const SaveStatisticsModal: FC<SaveStatisticsModalProps> = () => {
   return (
     <AlertDialog open={opened} onOpenChange={() => setOpened((prev) => !prev)}>
       <AlertDialogTrigger>
-        <Button>Save statistics</Button>
+        <Button translate="no">Save statistics</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <SaveStatistics onSaveHandler={onSaveHandler} />
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel translate="no">Cancel</AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -42,11 +42,14 @@ const SaveStatistics: FC<SaveStatisticsProps> = ({
   return (
     <div className={cn("flex flex-col gap-4", [className])}>
       <Input
+        translate="no"
         onChange={(e) => setUsername(e.target.value)}
         value={username}
         placeholder="Username"
       />
-      <Button onClick={saveStatsHandler}>Save</Button>
+      <Button translate="no" onClick={saveStatsHandler}>
+        Save
+      </Button>
     </div>
   );
 };

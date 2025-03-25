@@ -24,21 +24,25 @@ const LeaderboardTable: FC<LeaderboardTableProps> = () => {
   const { formatTime } = useTimer();
   return (
     <Table>
-      <TableCaption>A list of leaders.</TableCaption>
+      <TableCaption translate="no">A list of leaders.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Username</TableHead>
-          <TableHead>Mode</TableHead>
-          <TableHead>Time</TableHead>
+          <TableHead translate="no">Username</TableHead>
+          <TableHead translate="no">Mode</TableHead>
+          <TableHead translate="no">Time</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {leaders.map((leader) => {
           return (
             <TableRow key={leader.id}>
-              <TableCell className="font-medium">{leader.username}</TableCell>
-              <TableCell>{leader.statistics.mode}</TableCell>
-              <TableCell>{formatTime(leader.statistics.time)}</TableCell>
+              <TableCell translate="no" className="font-medium">
+                {leader.username}
+              </TableCell>
+              <TableCell translate="no">{leader.statistics.mode}</TableCell>
+              <TableCell translate="no">
+                {formatTime(leader.statistics.time)}
+              </TableCell>
             </TableRow>
           );
         })}

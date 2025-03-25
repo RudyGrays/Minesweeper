@@ -25,18 +25,18 @@ const GameModeSelect = ({ haveText = true }: { haveText?: boolean }) => {
 
   return (
     <Label>
-      {haveText && "Mode"}
+      {haveText && <span translate="no">Mode</span>}
       <Select
         onValueChange={(value: GameComplexityEnum) => handleSelect(value)}
         value={complexity}
       >
         <SelectTrigger>
-          <SelectValue placeholder="Select a game complexity" />
+          <SelectValue translate="no" placeholder="Select a game complexity" />
         </SelectTrigger>
         <SelectContent>
           {Object.values(GameComplexityEnum).map((complexity) => {
             return (
-              <SelectItem key={complexity} value={complexity}>
+              <SelectItem translate="no" key={complexity} value={complexity}>
                 {complexity}
               </SelectItem>
             );
