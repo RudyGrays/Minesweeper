@@ -12,7 +12,8 @@ import { GameLose } from "@/widgets/GameLose";
 import { GameWin } from "@/widgets/GameWin";
 import { ICell } from "@/entities/Cell/model/types/Cell";
 import useTimer from "@/shared/hooks/useTimer";
-import { useEffect, useLayoutEffect } from "react";
+import { useCallback, useEffect, useLayoutEffect } from "react";
+import { useWindowWidth } from "@/shared/hooks/useWindowWidth";
 
 export const GameField = () => {
   const cells = useAppSelector(gameSelectors.getCells);
@@ -26,6 +27,17 @@ export const GameField = () => {
   const openCell = (id: number) => dispatch(gameActions.openCell(id));
   const setFlag = (id: number) => dispatch(gameActions.setFlag(id));
 
+  const updateCells = useCallback(() => {
+    dispatch(gameActions.updateCells(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCells);
+
+    return () => {
+      window.removeEventListener("resize", updateCells);
+    };
+  }, [updateCells]);
   const handleLeftClick = (id: number) => {
     if (status === GameStatus.PAUSE) return;
     if (status === GameStatus.STARTED) return openCell(id);

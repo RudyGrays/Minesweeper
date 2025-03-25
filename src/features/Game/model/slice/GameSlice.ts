@@ -34,12 +34,12 @@ export function getComplexityNumber(complexity: GameComplexityEnum) {
 
 const initialState: GameConfigSchema = {
   cells: getCellsSkeletons(
-    GameComplexity[GameComplexityEnum.EASY].columns,
+    Math.round(window.innerWidth / 40) - 1,
     getComplexityNumber(GameComplexityEnum.EASY)
   ),
   time: 0,
   openedCells: 0,
-  colsCount: GameComplexity[GameComplexityEnum.EASY].columns,
+  colsCount: Math.round(window.innerWidth / 40) - 1,
   flagsCount: 0,
   bombsCount: 0,
   visibleMode: false,
@@ -58,7 +58,10 @@ export const GameSlice = createSlice({
         getComplexityNumber(state.mode),
         state.bombChance,
         action.payload,
-        GameComplexity[state.mode].columns
+        Math.round(window.innerWidth / 40) - 1 <
+          GameComplexity[state.mode].columns
+          ? Math.round(window.innerWidth / 40) - 1
+          : GameComplexity[state.mode].columns
       );
       state.openedCells++;
       state.cells = cells;
@@ -108,12 +111,20 @@ export const GameSlice = createSlice({
     setBombChance: (state, action: PayloadAction<number>) => {
       state.bombChance = action.payload;
     },
-    updateCells: (state) => {
-      state.cells = updateCells(
-        state.cells,
-        state.colsCount,
-        state.visibleMode
-      );
+    updateCells: (state, action: PayloadAction<number>) => {
+      if (action.payload > 40 * GameComplexity[state.mode].columns) {
+        state.cells = updateCells(
+          state.cells,
+          GameComplexity[state.mode].columns,
+          state.visibleMode
+        );
+        return;
+      }
+
+      const colsCount = Math.round(action.payload / 40) - 1;
+      state.colsCount = colsCount;
+      console.log(colsCount);
+      state.cells = updateCells(state.cells, colsCount, state.visibleMode);
     },
 
     setColumnsCount: (state, action) => {
