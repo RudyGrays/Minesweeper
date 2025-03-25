@@ -43,10 +43,6 @@ export const GameField = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(gameActions.updateCells());
-  }, [columnsCount, dispatch]);
-
-  useEffect(() => {
     dispatch(gameActions.setTime(time));
   }, [time, dispatch]);
 

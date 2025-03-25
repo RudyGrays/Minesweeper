@@ -26,6 +26,7 @@ const GameChanceInput: FC<GameChanceInputProps> = ({
       {haveText && "Chance"}
       <Input
         type="number"
+        step={0.1}
         min={0.1}
         max={1}
         className={cn("", [className])}

@@ -89,6 +89,7 @@ export const GameSlice = createSlice({
       state.bombsCount = 0;
       state.flagsCount = 0;
       state.openedCells = 0;
+      state.visibleMode = false;
     },
     setMode: (state, action: PayloadAction<GameComplexityEnum>) => {
       state.mode = action.payload;
@@ -102,6 +103,7 @@ export const GameSlice = createSlice({
       state.flagsCount = 0;
       state.openedCells = 0;
       state.status = GameStatus.WAITING;
+      state.visibleMode = false;
     },
     setBombChance: (state, action: PayloadAction<number>) => {
       state.bombChance = action.payload;
