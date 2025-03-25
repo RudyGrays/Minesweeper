@@ -18,6 +18,7 @@ import {
   Routes,
 } from "@/app/providers/RouterProvider/model/config/RouterConfig";
 import { ModeToggle } from "./ThemeSwitcher";
+import { cn } from "@/shared/lib/utils";
 
 export const Header = () => {
   const score = useAppSelector(gameSelectors.getScore);
@@ -35,7 +36,7 @@ export const Header = () => {
       {windowWidth > 500 ? (
         <span translate="no">Minesweeper</span>
       ) : (
-        <Bomb className="min-w-4" />
+        <Bomb className="min-w-8 " />
       )}
 
       {windowWidth > 800
@@ -46,7 +47,7 @@ export const Header = () => {
               <GameModeSelect />
               <GameChanceInput />
               <GameResetButton />
-              <Label>
+              <Label className={cn({ ["flex flex-col"]: windowWidth < 350 })}>
                 <span translate="no">Time:{` `}</span>
                 <span translate="no">{formatTime(time)}</span>
               </Label>
@@ -58,10 +59,14 @@ export const Header = () => {
           )
         : isGamePath && (
             <div className="w-full flex h-full gap-3 justify-end items-center">
-              <div className="text-sm" translate="no">
-                Score: {score}
-              </div>
-              <Label className="text-sm">
+              <Label
+                translate="no"
+                className={cn({ ["flex flex-col"]: windowWidth < 350 })}
+              >
+                <span translate="no">Score:</span>
+                <span translate="no">{score}</span>
+              </Label>
+              <Label className={cn({ ["flex flex-col"]: windowWidth < 350 })}>
                 <span translate="no">Time:{` `}</span>
                 <span translate="no">{formatTime(time)}</span>
               </Label>
