@@ -20,7 +20,7 @@ export const GameField = () => {
 
   const { start, stop, time, reset } = useTimer();
   const visibleMode = useAppSelector(gameSelectors.getVisibleMode);
-  const columnsCount = useAppSelector(gameSelectors.getColsCount);
+
   const dispatch = useAppDispatch();
   const initGame = (id: number) => dispatch(gameActions._init(id));
   const openCell = (id: number) => dispatch(gameActions.openCell(id));
