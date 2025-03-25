@@ -13,7 +13,6 @@ import { GameWin } from "@/widgets/GameWin";
 import { ICell } from "@/entities/Cell/model/types/Cell";
 import useTimer from "@/shared/hooks/useTimer";
 import { useCallback, useEffect, useLayoutEffect } from "react";
-import { useWindowWidth } from "@/shared/hooks/useWindowWidth";
 
 export const GameField = () => {
   const cells = useAppSelector(gameSelectors.getCells);

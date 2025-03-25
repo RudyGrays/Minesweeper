@@ -82,8 +82,10 @@ const Cell: FC<CellProps> = ({
       )}
     >
       {isBomb && visibleMode && !isFlag && <Bomb />}
-      {(!isBomb && isOpened && externalBombs != 0 && externalBombs) ||
-        (visibleMode && !isBomb && !isFlag && externalBombs)}
+      {(!isBomb && isOpened && externalBombs != 0 && (
+        <span>{externalBombs}</span>
+      )) ||
+        (visibleMode && !isBomb && !isFlag && <span>{externalBombs}</span>)}
 
       {isFlag && <Flag />}
     </Button>
