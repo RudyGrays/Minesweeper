@@ -174,12 +174,11 @@ export const GameSlice = createSlice({
       if (cell.isFlag) {
         state.cells[action.payload - 1] = { ...cell, isFlag: false };
         state.flagsCount--;
-        state.openedCells--;
+
         return;
       }
       state.cells[action.payload - 1] = { ...cell, isFlag: true };
       state.flagsCount++;
-      state.openedCells++;
 
       if (
         (state.openedCells === getComplexityNumber(state.mode) &&
