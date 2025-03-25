@@ -59,8 +59,10 @@ export const GameSlice = createSlice({
         getComplexityNumber(state.mode),
         state.bombChance,
         action.payload,
-        Math.round(window.innerWidth / 40) - 1 <
-          GameComplexity[state.mode].columns
+        state.mode === GameComplexityEnum.EASY
+          ? GameComplexity[GameComplexityEnum.EASY].columns
+          : Math.round(window.innerWidth / 40) - 1 <
+            GameComplexity[state.mode].columns
           ? Math.round(window.innerWidth / 40) - 1
           : GameComplexity[state.mode].columns
       );
@@ -85,7 +87,10 @@ export const GameSlice = createSlice({
     },
     gameReset: (state) => {
       state.cells = getCellsSkeletons(
-        state.colsCount,
+        Math.round(window.innerWidth / 40) - 1 <
+          GameComplexity[state.mode].columns
+          ? Math.round(window.innerWidth / 40) - 1
+          : GameComplexity[state.mode].columns,
         getComplexityNumber(state.mode)
       );
       state.time = 0;
