@@ -32,7 +32,11 @@ export const Header = () => {
 
   return (
     <header className="w-full max-w-[1400px] px-3 mx-auto border h-[70px] flex gap-4 items-center justify-between">
-      {windowWidth > 400 ? "Minesweeper" : <Bomb className="h-9" />}
+      {windowWidth > 400 ? (
+        <span translate="no">Minesweeper</span>
+      ) : (
+        <Bomb className="h-9" />
+      )}
 
       {windowWidth > 800
         ? isGamePath && (

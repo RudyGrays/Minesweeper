@@ -35,7 +35,8 @@ export function getComplexityNumber(complexity: GameComplexityEnum) {
 const initialState: GameConfigSchema = {
   cells: getCellsSkeletons(
     Math.round(window.innerWidth / 40) - 1,
-    getComplexityNumber(GameComplexityEnum.EASY)
+    (Math.round(window.innerWidth / 40) - 1) *
+      (Math.round(window.innerWidth / 40) - 1)
   ),
   time: 0,
   openedCells: 0,
